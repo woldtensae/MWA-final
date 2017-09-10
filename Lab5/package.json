@@ -6,6 +6,9 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "@reactivex/rxjs": "^5.4.3",
+    "async-await": "^0.1.40",
+    "await": "^0.2.6",
     "body-parser": "~1.17.1",
     "consolidate": "^0.14.5",
     "cookie-parser": "~1.4.3",

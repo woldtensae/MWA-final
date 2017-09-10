@@ -3,18 +3,45 @@ var express = require('express');
 var router = express.Router();
 var fetch = require('node-fetch');
 var swig = require('swig');
+var http = require('http');
+var Rx = require('@reactivex/rxjs');
+var await = require('async-await');
+
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  fetch('http://jsonplaceholder.typicode.com/users').then(function(response) {
-    // response.json() returns a promise, use the same .then syntax to work with the results
+  //1. Promisis
+  /*getFile().then(function(response) {
     response.json().then(function(usersList){
-      // users is now our actual variable parsed from the json, so we can use it
-      var list = usersList;    
-      res.render('users', list);
-          
+        res.render('users', usersList);  
     });
-  }).catch(err => console.log('err'));  
+    }).catch(err => console.log('err'));  
+    */      
+  //2. using Obervables
+    /*Rx.Observable.fromPromise(getFile())
+                 .subscribe((data) => data.json().then
+                  ((data)=>console.log(data)));
+    */              
+  //3. using Async/Await
+       let data = askForFile();
+       res.send(data);           
 });
+  async function askForFile(){
+      try{
+        let promisForData = await getFile();
+        data = promisForData.json();
+        return data;
+      }catch(error){
+        console.log(error);
+      } 
+  }  
+
+    //A promis object
+    var getFile = function(){
+      return fetch('http://jsonplaceholder.typicode.com/users',   (resolve, reject) =>  {
+          if(data){ resolve(data)}
+          else{ reject("error")}
+      });
+    }
 
 module.exports = router;
