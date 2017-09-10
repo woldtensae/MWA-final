@@ -23,14 +23,14 @@ router.get('/', function(req, res, next) {
                   ((data)=>console.log(data)));
     */              
   //3. using Async/Await
-       let data = askForFile();
-       res.send(data);           
+       askForFile(res);
+                 
 });
-  async function askForFile(){
+  async function askForFile(res){
       try{
         let promisForData = await getFile();
         data = promisForData.json();
-        return data;
+        res.send(data);
       }catch(error){
         console.log(error);
       } 
@@ -39,7 +39,7 @@ router.get('/', function(req, res, next) {
     //A promis object
     var getFile = function(){
       return fetch('http://jsonplaceholder.typicode.com/users',   (resolve, reject) =>  {
-          if(data){ resolve(data)}
+          if(data){ resolve(data);}
           else{ reject("error")}
       });
     }
