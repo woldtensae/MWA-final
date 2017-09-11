@@ -30,8 +30,8 @@ router.get('/', function(req, res, next) {
      /*  askForFile();
        async function askForFile(){
         try{
-          let promisForData = await getFile();
-          data = promisForData.json();
+          let promiseForData = await getFile();
+          data = promiseForData.json();
           console.log(data);
           res.render('users.ejs', {'users': data});
         }catch(error){
