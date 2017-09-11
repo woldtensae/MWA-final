@@ -14,6 +14,12 @@ var app = express();
 app.engine('ejs', consolidate.ejs);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.set('view cache', true)
+app.set('trust proxy', true);
+app.enable('trust proxy');
+app.enable('case sensitive routing', true);
+app.set('strict routing', true);
+app.set('x-powered-by', false);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
