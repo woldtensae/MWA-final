@@ -1,0 +1,12 @@
+<html>
+    <head>
+        <title>Newsletter subscription</title>
+    </head>
+    <body>
+        <form action="/newsletter" method="post">
+            <input type="text" placeholder="Insert your email here"><br>
+           <input type="hidden", name="_csrf", value = <%= tok  %> >
+            <input type="submit" value="Ok">
+        </form>
+    </body>
+</html>
