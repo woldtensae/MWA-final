@@ -12,13 +12,13 @@ var await = require('async-await');
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   //1. Promisis
-  /*getFile().then(function(response) {
+  getFile().then(function(response) {
     response.json().then(function(usersList){
       console.log(usersList);
       res.render('users.ejs', {'users': usersList}); 
     });
     }).catch(err => console.log('err'));  
-    */      
+          
   //2. using Obervables
     /*Rx.Observable.fromPromise(getFile())
                  .subscribe((data) => data.json().then
@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
                   }));
       */            
   //3. using Async/Await
-       askForFile();
+     /*  askForFile();
        async function askForFile(){
         try{
           let promisForData = await getFile();
@@ -38,7 +38,7 @@ router.get('/', function(req, res, next) {
           console.log(error);
         } 
     }
-                 
+   */              
 });
     
 
