@@ -1,0 +1,17 @@
+
+Book{
+    __id: ObjectId(),
+    ISBN: 'ISBN' 
+    student: {
+        __id: ObjectId();
+        name: 'student_name',
+        phone: 'student_phone';
+        email: 'email'
+    }
+    keyword: [ 'philiospy', 'biology', 'maths'],
+    author: 'author_name'
+    borrowed: {
+        borrowedDate: 'date',
+        returnDate: 'date'
+    }
+}
