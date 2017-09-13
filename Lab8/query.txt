@@ -1,0 +1,34 @@
+
+
+1. db.restaurant.find().pretty();
+2. db.restaurant.find({}, {restaurant_id:1, name:1, district:1, cuisin:1}).pretty();
+3. db.restaurant.find({}, {_id:0, name:1, district:1, cuisin:1}).pretty();
+4. db.restaurant.find({}, {_id:0, restaurant_id:1, name:1, district:1, zipcode:1}).pretty();
+5. db.restaurant.find({district: 'Bronx'}).pretty();
+6. db.restaurant.find(district: 'Bronx'}).limit(5).pretty());
+7. db.restaurant.find(district: 'Bronx'}).skip(5).limit(5).pretty());
+8. db.restaurant.find({"address.coord.0": {$lt: -95.754168}})
+9. db.restaurant.find({$and: [ {cuisine: {$ne: 'American'}}, {"grades.score": {$gt: 70}}, {"address.coord.0": {$lt: -65.754168}}] }).pretty();
+10. db.restaurant.find({name: {$regex:'^Wil'}}, {_id:0, restaurant_id:1, name:1, district:1, cuisine:1}).pretty();
+11. db.restaurant.find({name: {$regex:'ces$'}}, {_id:0, restaurant_id:1, name:1, district:1, cuisine:1}).pretty();
+12. db.restaurant.find({name: {$regex:'Reg'}}, {_id:0, restaurant_id:1, name:1, district:1, cuisine:1}).pretty();
+13. db.restaurant.find({$and: [ {district: {$eq: 'Bronx'}}, {cuisine: {$in: ['American', 'Chinese']}}]}).pretty();
+14. db.restaurant.find({district: {$in: ['Bronx', 'Staten Island', 'Queens', 'Brooklyn']}}, {_id:0, restaurant_id:1, name:1, district:1, cuisine:1}).pretty();
+15. db.restaurant.find({district: {$nin: ['Bronx', 'Staten Island', 'Queens', 'Brooklyn']}}, {_id:0, restaurant_id:1, name:1, district:1, cuisine:1}).pretty();
+16. db.restaurant.find({"grades.score": {$lt: 10}}, {_id:0, restaurant_id:1, name:1, district:1, cuisine:1}).pretty();
+17. db.restaurant.find({"address.coord.1": {$gt:42, $lt:52}}, {_id:0, restaurant_id:1, name:1, district:1, address:1,  cuisine:1}).pretty();
+18. db.restaurant.find().sort({"name": -1}).pretty();
+19. db.restaurant.find().sort({"name": 1}).limit(5).pretty();
+20. db.restaurant.find().sort({"name": 1, "dstrict": -1}).limit     (2).pretty();
+21. db.restaurant.find({"address.street": {$exists: true}}).count();
+22. db.restaurant.find({"address.coord": {$type: "double"}}).pretty();
+23. db.restaurant.find({name: {$regex:'Mad'}}, {_id:0, name:1, district:1, "address.coord":1,  cuisine:1}).pretty();
+
+
+
+
+
+
+
+
+
