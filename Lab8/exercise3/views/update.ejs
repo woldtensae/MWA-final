@@ -1,0 +1,23 @@
+<html>
+        <head>
+          <title><%= title %></title>
+        </head>
+        <body>
+            <h1><%= title %></h1>
+          <form action="/update" method="post">
+            <label for="name">Provide Name you want to update:</label>
+            <input type="text" name="nameTobBeUpdated"><br><br>
+            <hr>
+            <label for="name">Name:</label>
+              <input type="text" name="name"><br><br>
+            <label for="category">Category:</label>
+              <input type="text" name="category"><br><br>
+            <label for="long">Longitiude</label>
+              <input type="number" name="long"><br><br>
+            <label for="lat">Latitiude</label>
+              <input type="number" name="lat"><br><br>
+              
+              <input type="submit" value="Update Record">
+          </form>
+        </body>
+      </html> 

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title></title>
+        <script>
+
+
+        
+            function sendToBackend(){
+                navigator.geolocation.getCurrentPosition(success, fail);
+                function success(postion){
+                    const long = postion.coords.longitude;
+                    const lat = postion.coords.latitude;
+                    console.log("longtiude: " + long);
+                    console.log("latitude: " + lat);
+                    document.getElementById('long').value = long;
+                    document.getElementById('lat').value = lat;
+                    document.getElementById('myForm').submit();
+                }
+                function fail(err){
+                    console.log(err.code + err.message);
+                }
+            }
+        
+      </script>
+    <body>
+        <form action="/search" method="post" id="myForm">    
+            <select name="option" id="option">
+                    <option value="restaurant" selected>restaurant</option>
+                    <option value="cafe">cafe</option>
+                  
+            </select>
+            <input type="hidden" id="long" name="long">
+            <input type="hidden" id="lat" name="lat">
+            <button name="search" onclick="sendToBackend()">Button</button>
+        </form>    
+    </body>
+</html>
