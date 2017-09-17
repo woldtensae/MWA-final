@@ -11,15 +11,18 @@ router.get('/', function(req, res, next) {
 router.post('/', function(req, res, next){
     var long = parseFloat(req.body.long);
     var lat = parseFloat(req.body.lat);
+    console.log(long);
+    console.log(lat);
     console.log(req.body.option);
     mongoClient.connect('mongodb://127.0.0.1:27017/location', (err, db) => {
         if(err) throw err;
         var query = {'category': req.body.option};
    
+        //db.collection('locationDoc').find(query).toArray().find({location: {$near: [long, lat]}}).limit(10);
+
+        db.collection.find({location: {$near: [long, lat]}}).limit(1);        
         
-        var result = db.collection('locationDoc').find(query, {location: {$near:[long, lat]}}).limit(1).toArray();
-        
-        console.log(result);
+        //res.end();
       });
 });
 
